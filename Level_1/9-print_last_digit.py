@@ -3,4 +3,4 @@ def print_last_digit(number):
     print(last_number, end="")
     return last_number
 
-print_last_digit(7472728)
+print_last_digit(6666843)
