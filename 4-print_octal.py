@@ -5,9 +5,9 @@ def number_to_octal(num):
     
     while num > 0:
         remainder = num % 8
-        octal_num = octal_num + str(remainder)
+        octal_num = str(remainder) + octal_num
         num = num // 8
-    return octal_num[::-1]
+    return octal_num
 
 output = number_to_octal(whole_number)
 
