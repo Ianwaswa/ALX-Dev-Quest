@@ -6,4 +6,4 @@ def islower(c):
         return True
     else:
         return False
-print(islower('A'))
+print(islower('a'))
