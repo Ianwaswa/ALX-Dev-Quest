@@ -1,14 +1,14 @@
 def fizzbuzz():
-    for i  in range(1, 100):
+    output = ""
+    for i in range(1, 100):
         if i % 3 == 0 and i % 5 == 0:
-            print("Fizzbuzz")
+            output += "FizzBuzz "
         elif i % 3 == 0:
-            print("Fizz")
+            output += "Fizz "
         elif i % 5 == 0:
-            print("Buzz")
+            output += "Buzz "
         else:
-            print(i)
-    print(i, end='')
-    return i
-    
+            output += str(i) + " "
+    print(output, end='')
+    return output
 fizzbuzz()
