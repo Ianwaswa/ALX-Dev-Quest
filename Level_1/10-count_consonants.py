@@ -7,4 +7,4 @@ def count_consonants(str):
         elif char == " ":
             continue
     return count
-print(count_consonants("OpenAI")) # 3
+print(count_consonants("UA")) # 3
