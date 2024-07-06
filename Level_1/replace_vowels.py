@@ -6,5 +6,5 @@ def replace_vowels(str):
             result += "*"
         else:
             result += vowel
-    return str
+    print(result)
 print(replace_vowels("OpenAI")) # *p*n**
