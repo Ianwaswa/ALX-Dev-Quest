@@ -1,2 +1,3 @@
-import sys
-print(sys.argv)
+import demo
+
+demo.greetings("John")
