@@ -1,2 +1,2 @@
-import sys
-print(sys.argv)
+def greetings(name):
+    print("Hello" + name)
