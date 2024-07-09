@@ -4,4 +4,6 @@ if __name__ == "__main__":
     arguments_number = len(arguments)
     if len(arguments) == 0:
         print(f"{arguments_number} arguments.")
+    elif len(arguments) == 1:
+        print(f"{arguments_number} argument:/n{arguments[0]}")
         
