@@ -13,5 +13,3 @@ if __name__ == "__main__":
         print(f"{arguments_number} arguments:")
         for i in range(arguments_number):
             print(f"{i + 1}: {argv[i]}")
-
-        
