@@ -1,3 +1,3 @@
-import demo
+import sys
 
-demo.greetings("John")
+print(sys.version)
