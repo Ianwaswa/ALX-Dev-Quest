@@ -1,3 +1,8 @@
 import sys
 
-print(sys.version)
+for line in sys.stdin:
+    if 'q' == line.strip():
+        break
+    print(f'Input: {line}')
+    
+print('Exiting...')
