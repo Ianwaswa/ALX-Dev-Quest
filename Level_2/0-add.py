@@ -1,8 +1,11 @@
 if __name__ == "__main__":
-    from add_0 import add
+    from add_0 import add, subtract, multiply, divide
     
-    a = 1
-    b = 2
-    result = add(a, b)
+    a = int(input("Enter first integer: "))
+    b = int(input("Enter second integer: "))
     
-    print("{} + {} = {}".format(a, b, result))
+    print(f"{a} + {b} = {add(a, b)}")
+    print(f"{a} - {b} = {subtract(a, b)}")
+    print(f"{a} * {b} = {multiply(a, b)}")
+    print(f"{a} / {b} = {divide(a, b)}")
+    
