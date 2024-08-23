@@ -1,6 +1,6 @@
 import sys
 
-n = len(sys.argv)
+n = len(sys.argv) - 1
 print("Total arguments passed:", n)
 print("\nName of the script:", sys.argv[0])
 print("\nArguments passed:", end=" ")
