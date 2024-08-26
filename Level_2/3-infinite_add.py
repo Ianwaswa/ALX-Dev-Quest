@@ -1,6 +1,6 @@
-if __name__ == "__main__":
-    
-    import sys
+import sys
+
+def main():
     argv = sys.argv[1:]
     result = 0
     
@@ -8,3 +8,6 @@ if __name__ == "__main__":
         result += int(arg)
     
     print(f"Result: {result}")
+
+if __name__ == "__main__":
+    main()
