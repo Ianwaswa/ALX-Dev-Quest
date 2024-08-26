@@ -1,18 +1,10 @@
-if __name__ == "__main__":
-    import importlib.util
-    import sys
-    
-    hidden_4_path = "hidden_4.pyc"
-    
-    spec = importlib.util.spec_from_file_location(hidden_4_path, hidden_4_path)
-    hidden_4 = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(hidden_4)
-    
+import hidden_4
+
+def main():
     names = dir(hidden_4)
-    
     filtered_names = [name for name in names if not name.startswith("__")]
-    
-    for name in filtered_names:
+    for name in sorted(filtered_names):
         print(name)
-    
-    
+
+if __name__ == "__main__":
+    main()
