@@ -5,7 +5,7 @@ if __name__ == "__main__":
     arg_count = len(argv)
     result = 0
     
-    for i in range(1, arg_count):
-        result += int(arg_count)
+    for arg in argv:
+        result += int(arg)
     
     print(f"Result: {result}")
