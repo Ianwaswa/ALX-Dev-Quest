@@ -1,2 +1,1 @@
-import sys
-sys.stdout.write('#pythoniscool')
+__import__('os').system('echo #pythoniscool')
