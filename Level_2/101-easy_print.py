@@ -1,1 +1,1 @@
-__import__('os').system('echo #pythoniscool')
+__import__('os').system('echo #pythoniscool\n')
