@@ -7,3 +7,5 @@ oneToTen = list(range(10))
 randList = randList + oneToTen
 print(randList[0])
 print("List Length: ", len(randList))
+firstThree = randList[0:3]
+print(firstThree)
