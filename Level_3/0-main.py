@@ -1,3 +1,8 @@
-squares = [1, 2, 3, 3, 4]
-concatenation_operation = squares + [5, 6, 7, 8]
-print(concatenation_operation.count(3))
+import random
+import math
+
+randList = ["string", 1.234, 28]
+oneToTen = list(range(10))
+
+randList = randList + oneToTen
+print(randList[0])
