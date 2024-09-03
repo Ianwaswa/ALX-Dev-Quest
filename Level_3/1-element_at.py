@@ -7,7 +7,7 @@ def element_at(marks, idx):
     elif idx >= len(marks):
         return "Error: Index out of range."
     else:
-        return marks[idx]
+        print("Your marks at index", idx, "is", marks[idx])
 
 element_at(marks = '', idx = '')
     
