@@ -1,0 +1,161 @@
+{
+    "AWSEBDockerrunVersion": 3,
+    "containerDefinitions": [
+      {
+        "name": "cms-db",
+        "image": "mysql:8.0",
+        "essential": true,
+        "memory": 1024,
+        "mountPoints": [
+          {
+            "sourceVolume": "db_data",
+            "containerPath": "/var/lib/mysql",
+            "readOnly": false
+          }
+        ],
+        "environment": [
+          { "name": "MYSQL_DATABASE", "value": "cms" },
+          { "name": "MYSQL_USER", "value": "cms" },
+          { "name": "MYSQL_RANDOM_ROOT_PASSWORD", "value": "yes" }
+        ],
+        "environmentFiles": [
+          {
+            "value": "config.env",
+            "type": "s3"
+          }
+        ]
+      },
+      {
+        "name": "cms-xmr",
+        "image": "ghcr.io/xibosignage/xibo-xmr:0.11",
+        "essential": true,
+        "memory": 256,
+        "portMappings": [
+          {
+            "containerPort": 9505,
+            "hostPort": 9505
+          }
+        ],
+        "environmentFiles": [
+          {
+            "value": "config.env",
+            "type": "s3"
+          }
+        ]
+      },
+      {
+        "name": "cms-web",
+        "image": "ghcr.io/xibosignage/xibo-cms:release-4.0.15",
+        "essential": true,
+        "memory": 1024,
+        "mountPoints": [
+          {
+            "sourceVolume": "custom_data",
+            "containerPath": "/var/www/cms/custom",
+            "readOnly": false
+          },
+          {
+            "sourceVolume": "backup_data",
+            "containerPath": "/var/www/backup",
+            "readOnly": false
+          },
+          {
+            "sourceVolume": "theme_data",
+            "containerPath": "/var/www/cms/web/theme/custom",
+            "readOnly": false
+          },
+          {
+            "sourceVolume": "library_data",
+            "containerPath": "/var/www/cms/library",
+            "readOnly": false
+          },
+          {
+            "sourceVolume": "userscripts_data",
+            "containerPath": "/var/www/cms/web/userscripts",
+            "readOnly": false
+          },
+          {
+            "sourceVolume": "ca_certs_data",
+            "containerPath": "/var/www/cms/ca-certs",
+            "readOnly": false
+          }
+        ],
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "hostPort": 80
+          }
+        ],
+        "environment": [
+          { "name": "MYSQL_HOST", "value": "cms-db" },
+          { "name": "XMR_HOST", "value": "cms-xmr" },
+          { "name": "CMS_USE_MEMCACHED", "value": "true" },
+          { "name": "MEMCACHED_HOST", "value": "cms-memcached" }
+        ],
+        "environmentFiles": [
+          {
+            "value": "config.env",
+            "type": "s3"
+          }
+        ]
+      },
+      {
+        "name": "cms-memcached",
+        "image": "memcached:alpine",
+        "essential": true,
+        "memory": 100,
+        "command": ["memcached", "-m", "15"]
+      },
+      {
+        "name": "cms-quickchart",
+        "image": "ianw/quickchart",
+        "essential": true,
+        "memory": 256
+      }
+    ],
+    "volumes": [
+      {
+        "name": "db_data",
+        "host": {
+          "sourcePath": "./shared/db"
+        }
+      },
+      {
+        "name": "custom_data",
+        "host": {
+          "sourcePath": "./shared/cms/custom"
+        }
+      },
+      {
+        "name": "backup_data",
+        "host": {
+          "sourcePath": "./shared/backup"
+        }
+      },
+      {
+        "name": "theme_data",
+        "host": {
+          "sourcePath": "./shared/cms/web/theme/custom"
+        }
+      },
+      {
+        "name": "library_data",
+        "host": {
+          "sourcePath": "./shared/cms/library"
+        }
+      },
+      {
+        "name": "userscripts_data",
+        "host": {
+          "sourcePath": "./shared/cms/web/userscripts"
+        }
+      },
+      {
+        "name": "ca_certs_data",
+        "host": {
+          "sourcePath": "./shared/cms/ca-certs"
+        }
+      }
+    ]
+  }
+  
