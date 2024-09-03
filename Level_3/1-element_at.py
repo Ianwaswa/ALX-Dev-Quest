@@ -1,8 +1,13 @@
-def element_at(my_list, idx):
-    my_list = [1, 2, 8, 4, 5]
-    idx = 2
+def element_at(marks, idx):
+    marks = [100, 112, 128, 114, 65]
+    idx = int(input("Enter an index to check your marks: "))
     
-    print(f'Element at index {idx} is {my_list[idx]}')
+    if idx < 0:
+        return "Error: Index should be a non-negative integer."
+    elif idx >= len(marks):
+        return "Error: Index out of range."
+    else:
+        return marks[idx]
 
-element_at(my_list = '', idx = '')
+element_at(marks = '', idx = '')
     
