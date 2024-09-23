@@ -1,7 +1,4 @@
-from collections import deque
-stack = deque([1, 2, 3, 4])
-stack.append(7)
-stack.append(9)
-stack.popleft()
-stack.popleft()
-print(stack)
+squares = []
+for x in range(10):
+    squares.append(x**2)
+print(squares)
